@@ -7,6 +7,7 @@
 //
 
 #import "WCOtherLoginViewCOntroller.h"
+#import "AppDelegate.h"
 
 @interface WCOtherLoginViewCOntroller ()
 @property (weak, nonatomic) IBOutlet UITextField *userField;
@@ -53,8 +54,32 @@
     [defults setObject:uesr forKey:@"user"];
     [defults setObject:pwd forKey:@"pwd"];
     [defults synchronize];
+//    登录前有个提示
+    [MBProgressHUD showMessage:@"正在登录中..."];
+//    调用登录方法
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    [app xmppUserlogin:^(XMPPResultType type) {
+        [self handleResultType:type];
+    }];
 }
 
+- (void)handleResultType:(XMPPResultType)type{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUD];
+        switch (type) {
+            case XMPPResultTypeloginSuccess:
+                NSLog(@"登录成功");
+                break;
+            case XMPPResultTypeloginFailed:
+                NSLog(@"登录失败");
+                [MBProgressHUD showError:@"用户名或者密码不正确"];
+                break;
+            default:
+                break;
+        }
+
+    });
+}
 /*
 #pragma mark - Navigation
 

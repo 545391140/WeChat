@@ -19,6 +19,7 @@
 
 @interface AppDelegate ()<XMPPStreamDelegate>{
     XMPPStream *xmppStream;
+    XMPPResultBlock _resultBlock;
 }
 //1.初始化xmppstream
 - (void)setupXMPPStream;
@@ -55,8 +56,9 @@
     if (!xmppStream) {
         [self setupXMPPStream];
     }
-
-    XMPPJID *myJID = [XMPPJID jidWithUser:@"lisi" domain:@"liudemacbook-pro.local" resource:@"iphone"];
+//从沙盒里获取用户名
+    NSString *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"liudemacbook-pro.local" resource:@"iphone"];
     xmppStream.myJID = myJID;
 
     xmppStream.hostName = @"liudemacbook-pro.local";
@@ -71,41 +73,70 @@
 - (void)sendPwdToHost{
     NSLog(@"发送秘码");
     NSError *error = nil;
-    [xmppStream authenticateWithPassword:@"123456" error:&error];
+    NSString *pwd = [[NSUserDefaults standardUserDefaults] objectForKey:@"pwd"];
+    [xmppStream authenticateWithPassword:pwd error:&error];
     if (error) {
         NSLog(@"%@",error);
     }
 }
 
 - (void)senOnlineToHost{
+
     NSLog(@"发送在线消息");
+//    从沙盒里获取密码
     XMPPPresence *persence = [XMPPPresence presence];
     [xmppStream sendElement:persence];
 }
+
 #pragma mark - XMPPStreamDelegate
-#pragma mark 与主机连接失败
+#pragma mark 与主机连成功
 -(void)xmppStreamDidConnect:(XMPPStream *)sender{
     NSLog(@"与主机连接成功");
     [self sendPwdToHost];
 }
 
+#pragma  mark -- 与主机连接失败
 - (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error{
     NSLog(@"连接失败:%@",error);
 }
 
 #pragma mark - 授权
+#pragma mark -- 登录成功
 -(void)xmppStreamDidAuthenticate:(XMPPStream *)sender{
     NSLog(@"授权成功");
     [self senOnlineToHost];
-}
--(void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(DDXMLElement *)error{
-    NSLog(@"授权失败:%@",error);
+
+
+//    登录后来到主页面
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"main" bundle:nil];
+        self.window.rootViewController = storyboard.instantiateInitialViewController;
+
+    });
 }
 
+#pragma  mark -- 登录失败
+-(void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(DDXMLElement *)error{
+    NSLog(@"授权失败:%@",error);
+//    判断block有无值 在回调给控制器
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTypeloginFailed);
+    }
+}
+
+#pragma  mark -- 公有方法
+#pragma  mark -- 注销
 - (void)logout{
     XMPPPresence *offline = [XMPPPresence presenceWithType:@"unavailable"];
     [xmppStream sendElement:offline];
     [xmppStream disconnect];
+}
+
+#pragma mark -- 登录
+- (void)xmppUserlogin:(XMPPResultBlock)resultBlock{
+//    连接主机 成功后放松密码
+    _resultBlock = resultBlock;
+    [self connectToHost];
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -155,6 +155,9 @@
 		15E3DDF41C5B3C7D006BF1FB /* XMPPMessage+XEP_0308.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3DD971C5B3C7D006BF1FB /* XMPPMessage+XEP_0308.m */; };
 		15E3DDF51C5B3C7D006BF1FB /* XMPPMessage+XEP_0333.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3DD9A1C5B3C7D006BF1FB /* XMPPMessage+XEP_0333.m */; };
 		15E3DDF61C5B3C7D006BF1FB /* NSXMLElement+XEP_0335.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3DD9D1C5B3C7D006BF1FB /* NSXMLElement+XEP_0335.m */; };
+		15E3DDFD1C5B51C2006BF1FB /* MBProgressHUD+HM.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3DDF91C5B51C2006BF1FB /* MBProgressHUD+HM.m */; };
+		15E3DDFE1C5B51C2006BF1FB /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15E3DDFA1C5B51C2006BF1FB /* MBProgressHUD.bundle */; };
+		15E3DDFF1C5B51C2006BF1FB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3DDFC1C5B51C2006BF1FB /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -477,6 +480,11 @@
 		15E3DD9A1C5B3C7D006BF1FB /* XMPPMessage+XEP_0333.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XMPPMessage+XEP_0333.m"; sourceTree = "<group>"; };
 		15E3DD9C1C5B3C7D006BF1FB /* NSXMLElement+XEP_0335.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSXMLElement+XEP_0335.h"; sourceTree = "<group>"; };
 		15E3DD9D1C5B3C7D006BF1FB /* NSXMLElement+XEP_0335.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSXMLElement+XEP_0335.m"; sourceTree = "<group>"; };
+		15E3DDF81C5B51C2006BF1FB /* MBProgressHUD+HM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+HM.h"; sourceTree = "<group>"; };
+		15E3DDF91C5B51C2006BF1FB /* MBProgressHUD+HM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+HM.m"; sourceTree = "<group>"; };
+		15E3DDFA1C5B51C2006BF1FB /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		15E3DDFB1C5B51C2006BF1FB /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		15E3DDFC1C5B51C2006BF1FB /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -586,6 +594,7 @@
 		15E3D9F91C5A5269006BF1FB /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				15E3DDF71C5B51C2006BF1FB /* MBProgessHUD */,
 				15E3DBE71C5A6CCC006BF1FB /* Category */,
 				15E3D9FA1C5A5269006BF1FB /* XMPP */,
 			);
@@ -1432,6 +1441,18 @@
 			path = "XEP-0335";
 			sourceTree = "<group>";
 		};
+		15E3DDF71C5B51C2006BF1FB /* MBProgessHUD */ = {
+			isa = PBXGroup;
+			children = (
+				15E3DDF81C5B51C2006BF1FB /* MBProgressHUD+HM.h */,
+				15E3DDF91C5B51C2006BF1FB /* MBProgressHUD+HM.m */,
+				15E3DDFA1C5B51C2006BF1FB /* MBProgressHUD.bundle */,
+				15E3DDFB1C5B51C2006BF1FB /* MBProgressHUD.h */,
+				15E3DDFC1C5B51C2006BF1FB /* MBProgressHUD.m */,
+			);
+			path = MBProgessHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1540,6 +1561,7 @@
 				15E3D9D21C5A4E0A006BF1FB /* Assets.xcassets in Resources */,
 				15E3DBD41C5A60EB006BF1FB /* main.storyboard in Resources */,
 				15E3DBCE1C5A577E006BF1FB /* Images.xcassets in Resources */,
+				15E3DDFE1C5B51C2006BF1FB /* MBProgressHUD.bundle in Resources */,
 				15E3DBC11C5A526A006BF1FB /* README.txt in Resources */,
 				15E3DBD21C5A60D2006BF1FB /* login.storyboard in Resources */,
 				15E3D9D01C5A4E0A006BF1FB /* Main.storyboard in Resources */,
@@ -1574,6 +1596,7 @@
 				15E3DDE01C5B3C7D006BF1FB /* XMPPMessageArchiving.xcdatamodeld in Sources */,
 				15E3DB541C5A526A006BF1FB /* XMPPJID.m in Sources */,
 				15E3DDC91C5B3C7D006BF1FB /* XMPPvCardTempBase.m in Sources */,
+				15E3DDFF1C5B51C2006BF1FB /* MBProgressHUD.m in Sources */,
 				15E3DDEE1C5B3C7D006BF1FB /* XMPPTime.m in Sources */,
 				15E3DDC41C5B3C7D006BF1FB /* XMPPvCardCoreDataStorageObject.m in Sources */,
 				15E3DDAB1C5B3C7D006BF1FB /* XMPPRoster.m in Sources */,
@@ -1673,6 +1696,7 @@
 				15E3DDC11C5B3C7D006BF1FB /* XMPPvCard.xcdatamodeld in Sources */,
 				15E3DBC31C5A526A006BF1FB /* DDXMLDocument.m in Sources */,
 				15E3DDED1C5B3C7D006BF1FB /* XMPPAutoTime.m in Sources */,
+				15E3DDFD1C5B51C2006BF1FB /* MBProgressHUD+HM.m in Sources */,
 				15E3DDBA1C5B3C7D006BF1FB /* XMPPRoomOccupantHybridMemoryStorageObject.m in Sources */,
 				15E3DDBF1C5B3C7D006BF1FB /* XMPPMUC.m in Sources */,
 				15E3DDCD1C5B3C7D006BF1FB /* XMPPvCardTempTel.m in Sources */,
