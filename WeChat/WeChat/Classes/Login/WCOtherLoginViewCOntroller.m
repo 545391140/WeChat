@@ -42,6 +42,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark -- 登录
 - (IBAction)loginBtnClick:(id)sender {
 //     把用户名和密码放在沙盒里
 
@@ -54,31 +56,53 @@
     [defults setObject:uesr forKey:@"user"];
     [defults setObject:pwd forKey:@"pwd"];
     [defults synchronize];
+
+//    隐藏键盘
+    [self.view endEditing:YES];
 //    登录前有个提示
-    [MBProgressHUD showMessage:@"正在登录中..."];
+    [MBProgressHUD showMessage:@"正在登录..." toView:self.view];
+//    防止内存泄漏 将self变成弱引用
+    __weak typeof(self) selfvc = self;
 //    调用登录方法
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     [app xmppUserlogin:^(XMPPResultType type) {
-        [self handleResultType:type];
+        [selfvc handleResultType:type];
     }];
 }
 
 - (void)handleResultType:(XMPPResultType)type{
     dispatch_async(dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUD];
+        [MBProgressHUD hideHUDForView:self.view];
         switch (type) {
             case XMPPResultTypeloginSuccess:
-                NSLog(@"登录成功");
+                WCLog(@"登录成功");
+//    登录后来到主页面
+                [self enterMainPage];
                 break;
+
             case XMPPResultTypeloginFailed:
-                NSLog(@"登录失败");
-                [MBProgressHUD showError:@"用户名或者密码不正确"];
+                WCLog(@"登录失败");
+                [MBProgressHUD showError:@"用户名或者密码不正确" toView:self.view];
                 break;
+            case XMPPResultTypeloginNetError:
+                [MBProgressHUD showError:@"网络不给力" toView:self.view];
             default:
                 break;
         }
 
     });
+}
+
+- (void)enterMainPage{
+//    隐藏模态窗口
+    [self dismissViewControllerAnimated:YES completion:nil];
+//    登录成功来到主界面
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"main" bundle:nil];
+    self.view.window.rootViewController = storyboard.instantiateInitialViewController;
+}
+
+- (void)dealloc{
+    WCLog(@"%s",__func__);
 }
 /*
 #pragma mark - Navigation

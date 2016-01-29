@@ -10,7 +10,8 @@
 
 typedef enum{
     XMPPResultTypeloginSuccess,//登录成功
-    XMPPResultTypeloginFailed //登录失败
+    XMPPResultTypeloginFailed,//登录失败
+    XMPPResultTypeloginNetError
 } XMPPResultType;
 
 typedef void (^XMPPResultBlock)(XMPPResultType type);

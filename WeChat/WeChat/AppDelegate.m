@@ -60,6 +60,7 @@
     NSString *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
     XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"liudemacbook-pro.local" resource:@"iphone"];
     xmppStream.myJID = myJID;
+//    xmppStream.hostPort = 1233;
 
     xmppStream.hostName = @"liudemacbook-pro.local";
 
@@ -97,6 +98,12 @@
 
 #pragma  mark -- 与主机连接失败
 - (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error{
+//  如果有错误，表示存在问题
+//  如果没有错误，表示正常的断开连接（人为的断开连接）
+    if (error && _resultBlock) {
+        _resultBlock(XMPPResultTypeloginNetError);
+    }
+
     NSLog(@"连接失败:%@",error);
 }
 
@@ -105,14 +112,12 @@
 -(void)xmppStreamDidAuthenticate:(XMPPStream *)sender{
     NSLog(@"授权成功");
     [self senOnlineToHost];
+//   回调登录成功
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTypeloginSuccess);
+    }
 
 
-//    登录后来到主页面
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"main" bundle:nil];
-        self.window.rootViewController = storyboard.instantiateInitialViewController;
-
-    });
 }
 
 #pragma  mark -- 登录失败
@@ -136,8 +141,18 @@
 - (void)xmppUserlogin:(XMPPResultBlock)resultBlock{
 //    连接主机 成功后放松密码
     _resultBlock = resultBlock;
+
+//    断开之前的连接 解决上一个登录连接未释放的问题
+    [xmppStream disconnect];
+
     [self connectToHost];
+    
+
 }
+
+
+
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
