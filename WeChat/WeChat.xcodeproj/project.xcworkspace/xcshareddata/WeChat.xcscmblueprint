@@ -1,17 +1,19 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5F79B89D481AA17801239FD754DBF18851999B08+++3FEB84E",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B0279F15F34A6777CC58F3B34B07B4E9E9623B8E+++BBA62DB",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "5F79B89D481AA17801239FD754DBF18851999B08+++B9417FB" : 0,
+    "B0279F15F34A6777CC58F3B34B07B4E9E9623B8E+++BBA62DB" : 0,
     "5F79B89D481AA17801239FD754DBF18851999B08+++3FEB84E" : 0,
+    "5F79B89D481AA17801239FD754DBF18851999B08+++B9417FB" : 0,
     "5F79B89D481AA17801239FD754DBF18851999B08+++7FF6609" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "20647FA9-6264-447C-8CB2-2A78833FB47B",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "5F79B89D481AA17801239FD754DBF18851999B08+++B9417FB" : "..",
+    "B0279F15F34A6777CC58F3B34B07B4E9E9623B8E+++BBA62DB" : "WeChat\/",
     "5F79B89D481AA17801239FD754DBF18851999B08+++3FEB84E" : "Code\/",
+    "5F79B89D481AA17801239FD754DBF18851999B08+++B9417FB" : "..",
     "5F79B89D481AA17801239FD754DBF18851999B08+++7FF6609" : ".."
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "WeChat",
@@ -32,6 +34,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/545391140\/WeChat.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5F79B89D481AA17801239FD754DBF18851999B08+++B9417FB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/545391140\/WeChat.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B0279F15F34A6777CC58F3B34B07B4E9E9623B8E+++BBA62DB"
     }
   ]
 }
