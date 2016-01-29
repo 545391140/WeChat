@@ -1,5 +1,5 @@
 //
-//  WCNavigationController.h
+//  WCMeController.h
 //  WeChat
 //
 //  Created by Liu Zhijian on 16/1/29.
@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WCNavigationController : UINavigationController
-+ (void)setupNaTheme;
+@interface WCMeController : UITableViewController
 
 @end

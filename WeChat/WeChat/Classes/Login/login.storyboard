@@ -173,7 +173,13 @@
                             <constraint firstItem="m2Q-Bn-yAD" firstAttribute="top" secondItem="hDK-Mh-nou" secondAttribute="bottom" constant="86" id="bEP-iV-yEg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="其他方式登录" id="spD-2R-KSm"/>
+                    <navigationItem key="navigationItem" title="其他方式登录" id="spD-2R-KSm">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="Y8K-YP-4m3">
+                            <connections>
+                                <action selector="cancel:" destination="42f-mO-Y5r" id="fKF-lA-8Yc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="btnlogin" destination="bXV-8L-9yI" id="tJL-2v-LbE"/>
                         <outlet property="leftConstraints" destination="6tr-QD-L0h" id="wKu-g7-kEB"/>

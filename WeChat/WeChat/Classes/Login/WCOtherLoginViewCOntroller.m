@@ -100,6 +100,9 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"main" bundle:nil];
     self.view.window.rootViewController = storyboard.instantiateInitialViewController;
 }
+- (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)dealloc{
     WCLog(@"%s",__func__);

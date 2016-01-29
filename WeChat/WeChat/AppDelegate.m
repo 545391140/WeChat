@@ -37,18 +37,20 @@
 @implementation AppDelegate
 
 
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+//  添加导航栏
+    [WCNavigationController setupNaTheme];
+    return YES;
+}
+
 #pragma mark - 私用方法
 -(void)setupXMPPStream{
     xmppStream = [[XMPPStream alloc] init];
 
     //设置代理
     [xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
-
-}
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    [self connectToHost];
-
-    return YES;
+    
 }
 
 - (void)connectToHost{
@@ -135,6 +137,9 @@
     XMPPPresence *offline = [XMPPPresence presenceWithType:@"unavailable"];
     [xmppStream sendElement:offline];
     [xmppStream disconnect];
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"login" bundle:nil];
+    self.window.rootViewController = storyboard.instantiateInitialViewController;
 }
 
 #pragma mark -- 登录

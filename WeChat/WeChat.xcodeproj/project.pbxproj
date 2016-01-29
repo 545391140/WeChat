@@ -159,6 +159,7 @@
 		15E3DDFE1C5B51C2006BF1FB /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15E3DDFA1C5B51C2006BF1FB /* MBProgressHUD.bundle */; };
 		15E3DDFF1C5B51C2006BF1FB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3DDFC1C5B51C2006BF1FB /* MBProgressHUD.m */; };
 		15E3DE041C5B8353006BF1FB /* WCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3DE031C5B8353006BF1FB /* WCNavigationController.m */; };
+		15E3DE081C5B91E6006BF1FB /* WCMeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3DE071C5B91E6006BF1FB /* WCMeController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -488,6 +489,8 @@
 		15E3DDFC1C5B51C2006BF1FB /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		15E3DE021C5B8353006BF1FB /* WCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCNavigationController.h; sourceTree = "<group>"; };
 		15E3DE031C5B8353006BF1FB /* WCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCNavigationController.m; sourceTree = "<group>"; };
+		15E3DE061C5B91E6006BF1FB /* WCMeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCMeController.h; sourceTree = "<group>"; };
+		15E3DE071C5B91E6006BF1FB /* WCMeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCMeController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -862,6 +865,7 @@
 		15E3DBD01C5A5F84006BF1FB /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				15E3DE051C5B9153006BF1FB /* Controllers */,
 				15E3DBD31C5A60EB006BF1FB /* main.storyboard */,
 			);
 			path = Main;
@@ -1474,6 +1478,15 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		15E3DE051C5B9153006BF1FB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				15E3DE061C5B91E6006BF1FB /* WCMeController.h */,
+				15E3DE071C5B91E6006BF1FB /* WCMeController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1693,6 +1706,7 @@
 				15E3DDE11C5B3C7D006BF1FB /* XMPPMessageArchiving_Contact_CoreDataObject.m in Sources */,
 				15E3DDD51C5B3C7D006BF1FB /* NSDate+XMPPDateTimeProfiles.m in Sources */,
 				15E3DB571C5A526A006BF1FB /* XMPPParser.m in Sources */,
+				15E3DE081C5B91E6006BF1FB /* WCMeController.m in Sources */,
 				15E3DB591C5A526A006BF1FB /* XMPPStream.m in Sources */,
 				15E3DDC51C5B3C7D006BF1FB /* XMPPvCardTempCoreDataStorageObject.m in Sources */,
 				15E3DB4C1C5A526A006BF1FB /* XMPPPlainAuthentication.m in Sources */,

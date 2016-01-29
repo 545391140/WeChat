@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WCNavigationController.h"
 
 typedef enum{
     XMPPResultTypeloginSuccess,//登录成功
@@ -22,6 +23,8 @@ typedef void (^XMPPResultBlock)(XMPPResultType type);
 //用户登录
 - (void)xmppUserlogin:(XMPPResultBlock)resultBlock;
 
+//用户注销
+- (void)logout;
 
 @end
 
