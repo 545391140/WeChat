@@ -24,7 +24,7 @@
         <!--登录-->
         <scene sceneID="EhQ-R4-Fgn">
             <objects>
-                <viewController id="WfE-Ys-W4M" sceneMemberID="viewController">
+                <viewController id="WfE-Ys-W4M" customClass="WCLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QR3-tJ-w7h"/>
                         <viewControllerLayoutGuide type="bottom" id="lvD-CE-zKE"/>
@@ -40,7 +40,7 @@
                                         <rect key="frame" x="114" y="8" width="80" height="79"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQp-qF-g2o">
-                                        <rect key="frame" x="0.0" y="102" width="308" height="21"/>
+                                        <rect key="frame" x="0.0" y="102" width="308" height="25"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -88,6 +88,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="登录" id="I5Y-bh-Qee"/>
+                    <connections>
+                        <outlet property="userLable" destination="dQp-qF-g2o" id="Noz-Yi-NMI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ezB-Y7-5Ed" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

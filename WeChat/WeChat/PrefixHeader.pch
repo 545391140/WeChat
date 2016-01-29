@@ -14,6 +14,7 @@
 #import <UIKit/UIkit.h>
 #include "CategoryWF.h"
 #import "MBProgressHUD+HM.h"
+#import "WCUserInfo.h"
 
 
 #ifdef DEBUG

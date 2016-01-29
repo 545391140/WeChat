@@ -160,6 +160,8 @@
 		15E3DDFF1C5B51C2006BF1FB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3DDFC1C5B51C2006BF1FB /* MBProgressHUD.m */; };
 		15E3DE041C5B8353006BF1FB /* WCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3DE031C5B8353006BF1FB /* WCNavigationController.m */; };
 		15E3DE081C5B91E6006BF1FB /* WCMeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3DE071C5B91E6006BF1FB /* WCMeController.m */; };
+		15E3DE0B1C5B97F8006BF1FB /* WCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3DE0A1C5B97F8006BF1FB /* WCLoginViewController.m */; };
+		15E3DE101C5B9A49006BF1FB /* WCUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3DE0F1C5B9A49006BF1FB /* WCUserInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -491,6 +493,11 @@
 		15E3DE031C5B8353006BF1FB /* WCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCNavigationController.m; sourceTree = "<group>"; };
 		15E3DE061C5B91E6006BF1FB /* WCMeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCMeController.h; sourceTree = "<group>"; };
 		15E3DE071C5B91E6006BF1FB /* WCMeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCMeController.m; sourceTree = "<group>"; };
+		15E3DE091C5B97F8006BF1FB /* WCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCLoginViewController.h; sourceTree = "<group>"; };
+		15E3DE0A1C5B97F8006BF1FB /* WCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCLoginViewController.m; sourceTree = "<group>"; };
+		15E3DE0D1C5B99DA006BF1FB /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		15E3DE0E1C5B9A49006BF1FB /* WCUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCUserInfo.h; sourceTree = "<group>"; };
+		15E3DE0F1C5B9A49006BF1FB /* WCUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCUserInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -885,6 +892,8 @@
 			children = (
 				15E3DBE41C5A69C3006BF1FB /* WCOtherLoginViewCOntroller.h */,
 				15E3DBE51C5A69C3006BF1FB /* WCOtherLoginViewCOntroller.m */,
+				15E3DE091C5B97F8006BF1FB /* WCLoginViewController.h */,
+				15E3DE0A1C5B97F8006BF1FB /* WCLoginViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1464,6 +1473,7 @@
 		15E3DE001C5B82A0006BF1FB /* Common公共 */ = {
 			isa = PBXGroup;
 			children = (
+				15E3DE0C1C5B99AA006BF1FB /* Singleton */,
 				15E3DE011C5B82CA006BF1FB /* Controllers */,
 			);
 			name = "Common公共";
@@ -1485,6 +1495,16 @@
 				15E3DE071C5B91E6006BF1FB /* WCMeController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		15E3DE0C1C5B99AA006BF1FB /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				15E3DE0D1C5B99DA006BF1FB /* Singleton.h */,
+				15E3DE0E1C5B9A49006BF1FB /* WCUserInfo.h */,
+				15E3DE0F1C5B9A49006BF1FB /* WCUserInfo.m */,
+			);
+			name = Singleton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1713,6 +1733,7 @@
 				15E3DBFA1C5A6CCC006BF1FB /* UIView+WF.m in Sources */,
 				15E3DDC31C5B3C7D006BF1FB /* XMPPvCardCoreDataStorage.m in Sources */,
 				15E3DDE71C5B3C7D006BF1FB /* XMPPPresence+XEP_0172.m in Sources */,
+				15E3DE101C5B9A49006BF1FB /* WCUserInfo.m in Sources */,
 				15E3DDD21C5B3C7D006BF1FB /* TURNSocket.m in Sources */,
 				15E3DDA91C5B3C7D006BF1FB /* XMPPRosterMemoryStorage.m in Sources */,
 				15E3DBBE1C5A526A006BF1FB /* DDTTYLogger.m in Sources */,
@@ -1727,6 +1748,7 @@
 				15E3DB511C5A526A006BF1FB /* NSXMLElement+XMPP.m in Sources */,
 				15E3DDAA1C5B3C7D006BF1FB /* XMPPUserMemoryStorageObject.m in Sources */,
 				15E3DDAC1C5B3C7D006BF1FB /* XMPPSystemInputActivityMonitor.m in Sources */,
+				15E3DE0B1C5B97F8006BF1FB /* WCLoginViewController.m in Sources */,
 				15E3DDA41C5B3C7D006BF1FB /* XMPPResourceCoreDataStorageObject.m in Sources */,
 				15E3DDC11C5B3C7D006BF1FB /* XMPPvCard.xcdatamodeld in Sources */,
 				15E3DBC31C5A526A006BF1FB /* DDXMLDocument.m in Sources */,

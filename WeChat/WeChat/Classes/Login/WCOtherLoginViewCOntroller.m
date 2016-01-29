@@ -49,14 +49,12 @@
 
 //     调用APPDelegate的一个connect链接服务器
 
-    NSString *uesr = self.userField.text;
-    NSString *pwd = self.pawField.text;
 
-    NSUserDefaults *defults = [NSUserDefaults standardUserDefaults];
-    [defults setObject:uesr forKey:@"user"];
-    [defults setObject:pwd forKey:@"pwd"];
-    [defults synchronize];
+    WCUserInfo *userInfo = [WCUserInfo sharedWCUserInfo];
+    userInfo.user = self.userField.text;
+    userInfo.pwd = self.pawField.text;
 
+   
 //    隐藏键盘
     [self.view endEditing:YES];
 //    登录前有个提示
@@ -78,6 +76,7 @@
                 WCLog(@"登录成功");
 //    登录后来到主页面
                 [self enterMainPage];
+
                 break;
 
             case XMPPResultTypeloginFailed:
@@ -94,6 +93,11 @@
 }
 
 - (void)enterMainPage{
+//    更改用户的登录信息状态为 YES
+    [WCUserInfo sharedWCUserInfo].longinStatus = YES; 
+
+//    保存数据到沙盒
+    [[WCUserInfo sharedWCUserInfo]saveUserInfoToSanBox];
 //    隐藏模态窗口
     [self dismissViewControllerAnimated:YES completion:nil];
 //    登录成功来到主界面

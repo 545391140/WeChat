@@ -41,6 +41,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //  添加导航栏
     [WCNavigationController setupNaTheme];
+//    从沙盒里加载数据到单例
+    [[WCUserInfo sharedWCUserInfo] loadUserInfoFromSanBox];
+//    判断用户的登录状态
+    if ([WCUserInfo sharedWCUserInfo].longinStatus) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"main" bundle:nil];
+        self.window.rootViewController = storyboard.instantiateInitialViewController;
+
+        [self xmppUserlogin:nil];
+    }
     return YES;
 }
 
@@ -59,7 +68,7 @@
         [self setupXMPPStream];
     }
 //从沙盒里获取用户名
-    NSString *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    NSString *user = [WCUserInfo sharedWCUserInfo].user;
     XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"liudemacbook-pro.local" resource:@"iphone"];
     xmppStream.myJID = myJID;
 //    xmppStream.hostPort = 1233;
@@ -76,7 +85,7 @@
 - (void)sendPwdToHost{
     NSLog(@"发送秘码");
     NSError *error = nil;
-    NSString *pwd = [[NSUserDefaults standardUserDefaults] objectForKey:@"pwd"];
+    NSString *pwd = [WCUserInfo sharedWCUserInfo].pwd;
     [xmppStream authenticateWithPassword:pwd error:&error];
     if (error) {
         NSLog(@"%@",error);
@@ -86,7 +95,7 @@
 - (void)senOnlineToHost{
 
     NSLog(@"发送在线消息");
-//    从沙盒里获取密码
+
     XMPPPresence *persence = [XMPPPresence presence];
     [xmppStream sendElement:persence];
 }
@@ -140,6 +149,9 @@
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"login" bundle:nil];
     self.window.rootViewController = storyboard.instantiateInitialViewController;
+
+    [WCUserInfo sharedWCUserInfo].longinStatus = NO;
+    [[WCUserInfo sharedWCUserInfo] saveUserInfoToSanBox];
 }
 
 #pragma mark -- 登录
