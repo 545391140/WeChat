@@ -10,6 +10,8 @@
 
 @interface WCLoginViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *userLable;
+@property (weak, nonatomic) IBOutlet UITextField *password;
+@property (weak, nonatomic) IBOutlet UIButton *login;
 
 @end
 
@@ -19,6 +21,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    self.password.background = [UIImage imageNamed:@"operationbox_text"];
+
+    [self.password addLeftViewWithImage:@"Card_Lock"];
+
+    [self.login setBackgroundImage:[UIImage imageNamed:@"fts_green_btn_HL"] forState:UIControlStateNormal];
 //    设置登录名为上次登录的名字
 //    从沙盒获取用户名
     NSString *user = [WCUserInfo sharedWCUserInfo].user;
@@ -29,6 +36,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)login:(id)sender {
+    WCUserInfo *userInFo = [WCUserInfo sharedWCUserInfo];
+    userInFo.user = self.userLable.text;
+    userInFo.pwd = self.password.text;
+    
+    [super login];
+    
 }
 
 /*

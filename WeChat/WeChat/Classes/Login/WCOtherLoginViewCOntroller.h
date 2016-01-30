@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WCBaesLoginViewController.h"
 
-@interface WCOtherLoginViewCOntroller : UIViewController
+@interface WCOtherLoginViewCOntroller : WCBaesLoginViewController
 
 @end

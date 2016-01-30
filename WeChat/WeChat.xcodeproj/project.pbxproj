@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		156658981C5CCF54008CF4D7 /* WCBaesLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156658971C5CCF54008CF4D7 /* WCBaesLoginViewController.m */; };
 		15E3D9C71C5A4E0A006BF1FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3D9C61C5A4E0A006BF1FB /* main.m */; };
 		15E3D9CA1C5A4E0A006BF1FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3D9C91C5A4E0A006BF1FB /* AppDelegate.m */; };
 		15E3D9CD1C5A4E0A006BF1FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3D9CC1C5A4E0A006BF1FB /* ViewController.m */; };
@@ -182,6 +183,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		156658961C5CCF54008CF4D7 /* WCBaesLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBaesLoginViewController.h; sourceTree = "<group>"; };
+		156658971C5CCF54008CF4D7 /* WCBaesLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCBaesLoginViewController.m; sourceTree = "<group>"; };
 		15E3D9C21C5A4E0A006BF1FB /* WeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E3D9C61C5A4E0A006BF1FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		15E3D9C81C5A4E0A006BF1FB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
@@ -894,6 +897,8 @@
 				15E3DBE51C5A69C3006BF1FB /* WCOtherLoginViewCOntroller.m */,
 				15E3DE091C5B97F8006BF1FB /* WCLoginViewController.h */,
 				15E3DE0A1C5B97F8006BF1FB /* WCLoginViewController.m */,
+				156658961C5CCF54008CF4D7 /* WCBaesLoginViewController.h */,
+				156658971C5CCF54008CF4D7 /* WCBaesLoginViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1684,6 +1689,7 @@
 				15E3DBB61C5A526A006BF1FB /* XMPPIDTracker.m in Sources */,
 				15E3DDD61C5B3C7D006BF1FB /* XMPPDateTimeProfiles.m in Sources */,
 				15E3DDCA1C5B3C7D006BF1FB /* XMPPvCardTempEmail.m in Sources */,
+				156658981C5CCF54008CF4D7 /* WCBaesLoginViewController.m in Sources */,
 				15E3DDD31C5B3C7D006BF1FB /* XMPPIQ+XEP_0066.m in Sources */,
 				15E3DDA81C5B3C7D006BF1FB /* XMPPResourceMemoryStorageObject.m in Sources */,
 				15E3DBE61C5A69C3006BF1FB /* WCOtherLoginViewCOntroller.m in Sources */,
