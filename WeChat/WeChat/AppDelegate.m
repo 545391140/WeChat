@@ -68,7 +68,14 @@
         [self setupXMPPStream];
     }
 //从沙盒里获取用户名
-    NSString *user = [WCUserInfo sharedWCUserInfo].user;
+    NSString *user = nil;
+    if (self.isRegisterOperation) {
+        user = [WCUserInfo sharedWCUserInfo].registerUser;
+    }else{
+        user = [WCUserInfo sharedWCUserInfo].user;
+    }
+
+
     XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"liudemacbook-pro.local" resource:@"iphone"];
     xmppStream.myJID = myJID;
 //    xmppStream.hostPort = 1233;
@@ -104,7 +111,13 @@
 #pragma mark 与主机连成功
 -(void)xmppStreamDidConnect:(XMPPStream *)sender{
     NSLog(@"与主机连接成功");
-    [self sendPwdToHost];
+    if (self.isRegisterOperation) {
+        //获得注册的密码
+        NSString *pwd = [WCUserInfo sharedWCUserInfo].registerpwd;
+        [xmppStream registerWithPassword:pwd error:nil];//发送注册的密码
+    }else{
+        [self sendPwdToHost];
+    }
 }
 
 #pragma  mark -- 与主机连接失败
@@ -140,6 +153,23 @@
     }
 }
 
+#pragma mark -- 注册成功
+-(void)xmppStreamDidRegister:(XMPPStream *)sender{
+    WCLog(@"注册成功");
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTyperegisterSuccess);
+
+    }
+}
+
+#pragma mark -- 注册失败
+-(void)xmppStream:(XMPPStream *)sender didNotRegister:(DDXMLElement *)error{
+    WCLog(@"注册失败:%@",error);
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTyperegisterFiald);
+    }
+}
+
 #pragma  mark -- 公有方法
 #pragma  mark -- 注销
 - (void)logout{
@@ -156,7 +186,7 @@
 
 #pragma mark -- 登录
 - (void)xmppUserlogin:(XMPPResultBlock)resultBlock{
-//    连接主机 成功后放松密码
+
     _resultBlock = resultBlock;
 
 //    断开之前的连接 解决上一个登录连接未释放的问题
@@ -166,30 +196,16 @@
     
 
 }
+#pragma mark -- 注册方法
+- (void)xmppUserRegister:(XMPPResultBlock)resultBlock{
+    _resultBlock = resultBlock;
 
+    [xmppStream disconnect];
 
-
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [self connectToHost];
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
 
 @end

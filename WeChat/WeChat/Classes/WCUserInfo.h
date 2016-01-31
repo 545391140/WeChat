@@ -21,6 +21,10 @@ singleton_interface(WCUserInfo);//声明
 // YES 登录过
 // NO 未登录
 
+@property (nonatomic, copy) NSString *registerUser; // 注册名字
+@property (nonatomic, copy) NSString *registerpwd;//注册的密码
+
+
 
 //保持用户数据到沙盒里
 - (void)saveUserInfoToSanBox;

@@ -7,8 +7,10 @@
 //
 
 #import "WCLoginViewController.h"
+#import "WCNavigationController.h"
+#import "UIregisterViewController.h"
 
-@interface WCLoginViewController ()
+@interface WCLoginViewController ()<WCRegisterViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *userLable;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UIButton *login;
@@ -46,6 +48,26 @@
     
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    id destVc = segue.destinationViewController;
+
+    if ([destVc isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *nav = destVc;
+
+        UIregisterViewController *regiVc = (UINavigationController *)nav.topViewController;
+
+        regiVc.delegate = self;
+
+
+    }
+}
+#pragma mark -- registerViewControllerDifinshRegister代理
+
+- (void) registerViewControllerDifinshRegister{
+    NSLog(@"完成注册");
+    self.userLable.text = [WCUserInfo sharedWCUserInfo].registerUser;
+    [MBProgressHUD showSuccess:@"完成注册，请重新登录" toView:self.view];
+}
 /*
 #pragma mark - Navigation
 

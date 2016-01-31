@@ -36,6 +36,7 @@
     __weak typeof(self) selfvc = self;
     //    调用登录方法
     AppDelegate *app = [UIApplication sharedApplication].delegate;
+    app.registerOperation = NO;
     [app xmppUserlogin:^(XMPPResultType type) {
         [selfvc handleResultType:type];
     }];
