@@ -42,7 +42,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQp-qF-g2o">
                                         <rect key="frame" x="0.0" y="102" width="308" height="25"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ep-83-ARQ">
@@ -61,7 +61,7 @@
                                         <rect key="frame" x="42" y="210" width="30" height="30"/>
                                         <state key="normal" title="注册"/>
                                         <connections>
-                                            <segue destination="Fdz-dG-Ux7" kind="presentation" id="8a3-TX-pS7"/>
+                                            <segue destination="Fdz-dG-Ux7" kind="presentation" identifier="showregister" id="8a3-TX-pS7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cdn-v4-qBf">
@@ -79,7 +79,7 @@
                                 <rect key="frame" x="255" y="550" width="90" height="30"/>
                                 <state key="normal" title="其他方式登录"/>
                                 <connections>
-                                    <segue destination="7Pp-Nz-0FO" kind="presentation" id="yHY-uY-kgu"/>
+                                    <segue destination="7Pp-Nz-0FO" kind="modal" id="b7f-96-PwU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -113,7 +113,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="42f-mO-Y5r" kind="relationship" relationship="rootViewController" id="Kcd-yE-xXH"/>
+                        <segue destination="42f-mO-Y5r" kind="relationship" relationship="rootViewController" id="SqV-TZ-JOG"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Znv-RH-I8c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -184,7 +184,7 @@
                             <constraint firstItem="m2Q-Bn-yAD" firstAttribute="top" secondItem="hDK-Mh-nou" secondAttribute="bottom" constant="86" id="bEP-iV-yEg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="其他方式登录" id="spD-2R-KSm">
+                    <navigationItem key="navigationItem" id="spD-2R-KSm">
                         <barButtonItem key="leftBarButtonItem" title="取消" id="Y8K-YP-4m3">
                             <connections>
                                 <action selector="cancel:" destination="42f-mO-Y5r" id="fKF-lA-8Yc"/>
@@ -201,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWc-px-TXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1905" y="1363"/>
+            <point key="canvasLocation" x="1988" y="1363"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rh9-N9-KKA">
@@ -242,7 +242,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="textChanged:" destination="SF4-7B-DY5" eventType="editingChanged" id="ahm-ne-Kbz"/>
+                                            <action selector="textChanged:" destination="SF4-7B-DY5" eventType="editingChanged" id="agk-M6-1hI"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vDe-hS-zoG" userLabel="密码">
@@ -253,7 +253,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="pwdChanged:" destination="SF4-7B-DY5" eventType="editingChanged" id="4hc-1T-1ne"/>
+                                            <action selector="pwdChanged:" destination="SF4-7B-DY5" eventType="editingChanged" id="mCG-9K-vBh"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyA-9p-Yrb">
@@ -306,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5vK-rO-dm9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2551" y="485"/>
+            <point key="canvasLocation" x="2607" y="490"/>
         </scene>
     </scenes>
     <resources>

@@ -49,17 +49,22 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    id destVc = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"showregister"]) {
+         id destVc = segue.destinationViewController;
+        if ([destVc isKindOfClass:[UINavigationController class]]) {
+            UINavigationController *nav = destVc;
 
-    if ([destVc isKindOfClass:[UINavigationController class]]) {
-        UINavigationController *nav = destVc;
-
-        UIregisterViewController *regiVc = (UINavigationController *)nav.topViewController;
-
-        regiVc.delegate = self;
-
+            UIregisterViewController *regiVc = nav.topViewController;
+                        
+            regiVc.delegate = self;
+            
+            
+        }
 
     }
+    
+
+
 }
 #pragma mark -- registerViewControllerDifinshRegister代理
 

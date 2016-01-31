@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.title = @"其他方式登录";
     //判断当前适配的类型 在设定约束
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
         self.leftConstraints.constant = 30;

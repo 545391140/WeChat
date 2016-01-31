@@ -1951,6 +1951,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WeChat/Classes/Lib/XMPP/Vendor/libidn",
 				);
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liuzhijian.WeChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1970,6 +1971,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WeChat/Classes/Lib/XMPP/Vendor/libidn",
 				);
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liuzhijian.WeChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

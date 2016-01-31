@@ -114,9 +114,9 @@
     
 }
 - (IBAction)pwdChanged:(id)sender {
-//    BOOL enabled = (self.userField.text.length != 0 && self.passwordField.text.length != 0);
-//    self.registeBtn.enabled = enabled;
-//
+    BOOL enabled = (self.userField.text.length != 0 && self.passwordField.text.length != 0);
+    self.registeBtn.enabled = enabled;
+
 }
 
 /*
