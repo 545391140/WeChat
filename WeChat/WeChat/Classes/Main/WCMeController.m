@@ -8,8 +8,15 @@
 
 #import "WCMeController.h"
 #import "AppDelegate.h"
+#import "XMPPvCardTemp.h"
 
 @interface WCMeController ()
+//头像
+@property (weak, nonatomic) IBOutlet UIImageView *headView;
+//昵称
+@property (weak, nonatomic) IBOutlet UILabel *nickLable;
+//微信号
+@property (weak, nonatomic) IBOutlet UILabel *weixinNamber;
 
 @end
 
@@ -17,12 +24,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+//    当前用户的个人信息
+//    xmpp提供了一个方法 直接获取个人信息
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    XMPPvCardTemp *mycVard = app.vCard.myvCardTemp;
+
+//    NSLog(@"打印%@",mycVard);
+//   设置头像
+    if (mycVard.photo) {
+        self.headView.image = [UIImage imageWithData:mycVard.photo];
+    }
+//  设置昵称
+
+        self.nickLable.text = mycVard.nickname;
+
+//  设置微信号
+    NSString *user = [WCUserInfo sharedWCUserInfo].user;
+
+
+    self.weixinNamber.text = [NSString stringWithFormat:@"微信号:%@",user];
+
+    WCLog(@"已经加载");
+
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,15 +57,15 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//#warning Incomplete implementation, return the number of sections
+//    return 1;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//#warning Incomplete implementation, return the number of rows
+//    return 1;
+//}
 - (IBAction)logout:(id)sender {
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     [app logout];

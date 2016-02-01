@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "XMPPFramework.h"
+#import "DDLog.h"
+#import "DDTTYLogger.h"
 /*
  在这里面实现登录
  1.初始化xmppstream
@@ -20,6 +22,12 @@
 @interface AppDelegate ()<XMPPStreamDelegate>{
     XMPPStream *xmppStream;
     XMPPResultBlock _resultBlock;
+//电子名片
+   
+    XMPPvCardCoreDataStorage *_vCardStorage;
+//头像模块
+    XMPPvCardAvatarModule *_avatar;
+
 }
 //1.初始化xmppstream
 - (void)setupXMPPStream;
@@ -39,6 +47,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+//    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+
+//    打印沙盒路径
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES) lastObject];
+    NSLog(@"%@",path);
+
+
+
 //  添加导航栏
     [WCNavigationController setupNaTheme];
 //    从沙盒里加载数据到单例
@@ -56,6 +73,21 @@
 #pragma mark - 私用方法
 -(void)setupXMPPStream{
     xmppStream = [[XMPPStream alloc] init];
+//    添加电子名片模块
+    _vCardStorage = [XMPPvCardCoreDataStorage sharedInstance];
+    _vCard = [[XMPPvCardTempModule alloc] initWithvCardStorage:_vCardStorage];
+//    激活电子名片
+    [_vCard activate:xmppStream];
+
+//    添加头像模块
+    _avatar = [[XMPPvCardAvatarModule alloc] initWithvCardTempModule:_vCard];
+
+//    激活头像模块
+    [_avatar activate:xmppStream];
+
+    XMPPvCardTempModule* tempp = _vCard.myvCardTemp;
+//    NSLog(@"temp %@",tempp);
+
 
     //设置代理
     [xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];

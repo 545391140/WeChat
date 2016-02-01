@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WCNavigationController.h"
+#import "XMPPFramework.h"
 
 typedef enum{
     XMPPResultTypeloginSuccess,//登录成功
@@ -32,6 +33,8 @@ typedef void (^XMPPResultBlock)(XMPPResultType type);
 
 //用户注册方法
 - (void)xmppUserRegister:(XMPPResultBlock)resultBlock;
+
+@property (strong, nonatomic) XMPPvCardTempModule *vCard;
 
 
 @end
