@@ -9,8 +9,9 @@
 #import "WCProfileTableViewController.h"
 #import "AppDelegate.h"
 #import "XMPPvCardTemp.h"
+#import "WCEditProfileTableViewController.h"
 
-@interface WCProfileTableViewController ()<UIActionSheetDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface WCProfileTableViewController ()<UIActionSheetDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,WCEditProfileTableViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *headView;//头像
 
 
@@ -44,6 +45,7 @@
 
 #pragma mark 加载个人信息
 - (void)loadvCard{
+    self.title = @"个人信息";
     AppDelegate *app = [UIApplication sharedApplication].delegate;
 
     XMPPvCardTemp *myVcard = app.vCard.myvCardTemp;
@@ -85,7 +87,9 @@
         [sheet showInView:self.view];
     }else{
         //跳到下一个页面
-        //
+
+        [self performSegueWithIdentifier:@"EditVcard" sender:cell];
+
     }
 
     
@@ -94,6 +98,14 @@
 
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    id destVc = segue.destinationViewController;
+    if ([destVc isKindOfClass:[WCEditProfileTableViewController class ]]) {
+        WCEditProfileTableViewController *edivC = destVc;
+        edivC.cell = sender;
+        edivC.delegate = self;
+    }
+}
 #pragma mark - UIActionSheetDelegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 2) {
@@ -116,57 +128,42 @@
 #pragma mark 图片选择器代理
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     WCLog(@"%@",info);
-
+// 获取图片 设置图片
     UIImage *image = info[UIImagePickerControllerEditedImage];
-
+// 隐藏模态窗口
     self.headView.image = image;
 
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self WCEditProfileTableViewControllerDidsave];
 
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+#pragma mark - WCEditProfileTableViewControllerDelegate
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+- (void)WCEditProfileTableViewControllerDidsave{
+    //更新数据到服务器
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    XMPPvCardTemp *tempVcard = app.vCard.myvCardTemp;
+//更新头像
+    tempVcard.photo = UIImagePNGRepresentation(self.headView.image);
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
+    //获取电子名片信息
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+    tempVcard.nickname = self.nickName.text;
+    tempVcard.orgName = self.gongsi.text;
+    if ([self.bumen.text length] > 0) {
+        tempVcard.orgUnits = @[self.bumen.text];
+    }
 
-/*
-#pragma mark - Navigation
+    tempVcard.title = self.zhiwei.text;
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    tempVcard.note = self.dianhau.text;
+    tempVcard.mailer = self.email.text;
+    
+    [app.vCard updateMyvCardTemp:tempVcard];
+
 }
-*/
+
+
 
 @end

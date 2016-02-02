@@ -27,7 +27,14 @@
     XMPPvCardCoreDataStorage *_vCardStorage;
 //头像模块
     XMPPvCardAvatarModule *_avatar;
+//自动连接模块
+    XMPPReconnect *_reconnect;
 
+   // XMPPRoster *_roster;
+
+//   花名册模块
+//    XMPPRoster *_roster;
+//    XMPPRosterCoreDataStorage *_rosterStronge;
 }
 //1.初始化xmppstream
 - (void)setupXMPPStream;
@@ -72,7 +79,16 @@
 
 #pragma mark - 私用方法
 -(void)setupXMPPStream{
+
+   
     xmppStream = [[XMPPStream alloc] init];
+//    添加花名册 获取好友列表
+    self.rosterStronge = [[XMPPRosterCoreDataStorage alloc] init];
+    _roster= [[XMPPRoster alloc] initWithRosterStorage:self.rosterStronge];
+    [_roster activate:xmppStream];
+//   自动连接模块
+    _reconnect = [[XMPPReconnect alloc] init];
+    [_reconnect activate:xmppStream];//激活
 //    添加电子名片模块
     _vCardStorage = [XMPPvCardCoreDataStorage sharedInstance];
     _vCard = [[XMPPvCardTempModule alloc] initWithvCardStorage:_vCardStorage];
@@ -137,6 +153,27 @@
 
     XMPPPresence *persence = [XMPPPresence presence];
     [xmppStream sendElement:persence];
+}
+#pragma mark -- 销毁xmpp的相关资源
+- (void)teardownXmpp{
+//  移除代理
+    [xmppStream removeDelegate:self];
+//  停止模块
+
+    [_reconnect deactivate];
+    [_vCard deactivate];
+    [_avatar deactivate];
+    [_roster deactivate];
+//    断开连接
+    [xmppStream disconnect];
+//    清空资源
+    _reconnect = nil;
+    _vCard = nil;
+    _vCardStorage = nil;
+    _avatar = nil;
+    _roster = nil;
+    _rosterStronge = nil;
+    xmppStream = nil;
 }
 
 #pragma mark - XMPPStreamDelegate
@@ -237,7 +274,9 @@
     [self connectToHost];
 }
 
-
+- (void)dealloc{
+    [self teardownXmpp];
+}
 
 
 @end

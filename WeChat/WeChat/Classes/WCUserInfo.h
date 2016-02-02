@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "Singleton.h"
 
+static NSString * domain = @"liudemacbook-pro.local";
+
+
 @interface WCUserInfo : NSObject
 
 singleton_interface(WCUserInfo);//声明
@@ -23,6 +26,9 @@ singleton_interface(WCUserInfo);//声明
 
 @property (nonatomic, copy) NSString *registerUser; // 注册名字
 @property (nonatomic, copy) NSString *registerpwd;//注册的密码
+
+@property (nonatomic, copy) NSString *jid;
+
 
 
 

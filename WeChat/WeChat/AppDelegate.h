@@ -36,6 +36,10 @@ typedef void (^XMPPResultBlock)(XMPPResultType type);
 
 @property (strong, nonatomic) XMPPvCardTempModule *vCard;
 
+//   花名册模块
+@property (strong, nonatomic) XMPPRoster *roster;
+@property (nonatomic,strong) XMPPRosterCoreDataStorage *rosterStronge;
+
 
 @end
 

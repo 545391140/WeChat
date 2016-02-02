@@ -8,11 +8,12 @@
 
 #import "WCUserInfo.h"
 
-@implementation WCUserInfo
-
 #define UserKey @"user"
 #define LoginStatusKey @"LoginStatus"
 #define PwdKey @"pwd"
+
+@implementation WCUserInfo
+
 
 singleton_implementation(WCUserInfo)
 
@@ -31,5 +32,8 @@ singleton_implementation(WCUserInfo)
     self.pwd = [defaults objectForKey:PwdKey];
 }
 
+- (NSString *)jid{
+    return [NSString stringWithFormat:@"%@@%@",self.user,domain];
+}
 @end
 

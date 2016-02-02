@@ -10,6 +10,9 @@
 		156658981C5CCF54008CF4D7 /* WCBaesLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156658971C5CCF54008CF4D7 /* WCBaesLoginViewController.m */; };
 		1566589B1C5CE185008CF4D7 /* UIregisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566589A1C5CE185008CF4D7 /* UIregisterViewController.m */; };
 		15AFB3DD1C5F87660046F279 /* WCProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AFB3DC1C5F87660046F279 /* WCProfileTableViewController.m */; };
+		15AFB3E01C5FA4970046F279 /* WCEditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AFB3DF1C5FA4970046F279 /* WCEditProfileTableViewController.m */; };
+		15AFB3E31C60B34F0046F279 /* WCContatiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AFB3E21C60B34F0046F279 /* WCContatiesTableViewController.m */; };
+		15AFB5251C6102080046F279 /* WCAddContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AFB5241C6102080046F279 /* WCAddContactTableViewController.m */; };
 		15E3D9C71C5A4E0A006BF1FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3D9C61C5A4E0A006BF1FB /* main.m */; };
 		15E3D9CA1C5A4E0A006BF1FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3D9C91C5A4E0A006BF1FB /* AppDelegate.m */; };
 		15E3D9CD1C5A4E0A006BF1FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3D9CC1C5A4E0A006BF1FB /* ViewController.m */; };
@@ -191,6 +194,12 @@
 		1566589A1C5CE185008CF4D7 /* UIregisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIregisterViewController.m; sourceTree = "<group>"; };
 		15AFB3DB1C5F87660046F279 /* WCProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCProfileTableViewController.h; sourceTree = "<group>"; };
 		15AFB3DC1C5F87660046F279 /* WCProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCProfileTableViewController.m; sourceTree = "<group>"; };
+		15AFB3DE1C5FA4970046F279 /* WCEditProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCEditProfileTableViewController.h; sourceTree = "<group>"; };
+		15AFB3DF1C5FA4970046F279 /* WCEditProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCEditProfileTableViewController.m; sourceTree = "<group>"; };
+		15AFB3E11C60B34F0046F279 /* WCContatiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCContatiesTableViewController.h; sourceTree = "<group>"; };
+		15AFB3E21C60B34F0046F279 /* WCContatiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCContatiesTableViewController.m; sourceTree = "<group>"; };
+		15AFB5231C6102080046F279 /* WCAddContactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCAddContactTableViewController.h; path = ../Login/WCAddContactTableViewController.h; sourceTree = "<group>"; };
+		15AFB5241C6102080046F279 /* WCAddContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCAddContactTableViewController.m; path = ../Login/WCAddContactTableViewController.m; sourceTree = "<group>"; };
 		15E3D9C21C5A4E0A006BF1FB /* WeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E3D9C61C5A4E0A006BF1FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		15E3D9C81C5A4E0A006BF1FB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
@@ -627,6 +636,7 @@
 		15E3D9FA1C5A5269006BF1FB /* XMPP */ = {
 			isa = PBXGroup;
 			children = (
+				15E3DCB81C5B3C7D006BF1FB /* Extensions */,
 				15E3D9FB1C5A5269006BF1FB /* Authentication */,
 				15E3DA121C5A5269006BF1FB /* Categories */,
 				15E3DA191C5A5269006BF1FB /* Core */,
@@ -640,7 +650,6 @@
 		15E3D9FB1C5A5269006BF1FB /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				15E3DCB81C5B3C7D006BF1FB /* Extensions */,
 				15E3D9FC1C5A5269006BF1FB /* Anonymous */,
 				15E3D9FF1C5A5269006BF1FB /* Deprecated-Digest */,
 				15E3DA021C5A5269006BF1FB /* Deprecated-Plain */,
@@ -883,6 +892,8 @@
 			children = (
 				15E3DE051C5B9153006BF1FB /* Controllers */,
 				15E3DBD31C5A60EB006BF1FB /* main.storyboard */,
+				15AFB3E11C60B34F0046F279 /* WCContatiesTableViewController.h */,
+				15AFB3E21C60B34F0046F279 /* WCContatiesTableViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -971,7 +982,8 @@
 				15E3DD981C5B3C7D006BF1FB /* XEP-0333 */,
 				15E3DD9B1C5B3C7D006BF1FB /* XEP-0335 */,
 			);
-			path = Extensions;
+			name = Extensions;
+			path = Authentication/Extensions;
 			sourceTree = "<group>";
 		};
 		15E3DCB91C5B3C7D006BF1FB /* BandwidthMonitor */ = {
@@ -1508,6 +1520,10 @@
 				15E3DE071C5B91E6006BF1FB /* WCMeController.m */,
 				15AFB3DB1C5F87660046F279 /* WCProfileTableViewController.h */,
 				15AFB3DC1C5F87660046F279 /* WCProfileTableViewController.m */,
+				15AFB3DE1C5FA4970046F279 /* WCEditProfileTableViewController.h */,
+				15AFB3DF1C5FA4970046F279 /* WCEditProfileTableViewController.m */,
+				15AFB5231C6102080046F279 /* WCAddContactTableViewController.h */,
+				15AFB5241C6102080046F279 /* WCAddContactTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1686,6 +1702,7 @@
 				15E3DDA01C5B3C7D006BF1FB /* XMPPGoogleSharedStatus.m in Sources */,
 				15E3DDD81C5B3C7D006BF1FB /* XMPPSoftwareVersion.m in Sources */,
 				15E3DDB11C5B3C7D006BF1FB /* XMPPLastActivity.m in Sources */,
+				15AFB5251C6102080046F279 /* WCAddContactTableViewController.m in Sources */,
 				15E3DDAE1C5B3C7D006BF1FB /* XMPPIQ+JabberRPCResonse.m in Sources */,
 				15E3DDE61C5B3C7D006BF1FB /* XMPPMessage+XEP_0172.m in Sources */,
 				15E3D9CD1C5A4E0A006BF1FB /* ViewController.m in Sources */,
@@ -1703,6 +1720,7 @@
 				156658981C5CCF54008CF4D7 /* WCBaesLoginViewController.m in Sources */,
 				15E3DDD31C5B3C7D006BF1FB /* XMPPIQ+XEP_0066.m in Sources */,
 				15E3DDA81C5B3C7D006BF1FB /* XMPPResourceMemoryStorageObject.m in Sources */,
+				15AFB3E01C5FA4970046F279 /* WCEditProfileTableViewController.m in Sources */,
 				15E3DBE61C5A69C3006BF1FB /* WCOtherLoginViewCOntroller.m in Sources */,
 				15E3DDB51C5B3C7D006BF1FB /* XMPPRoomMessageCoreDataStorageObject.m in Sources */,
 				15E3DBC51C5A526A006BF1FB /* DDXMLNode.m in Sources */,
@@ -1717,6 +1735,7 @@
 				15E3DBBA1C5A526A006BF1FB /* DDAbstractDatabaseLogger.m in Sources */,
 				15E3DBBD1C5A526A006BF1FB /* DDLog.m in Sources */,
 				15E3DDA71C5B3C7D006BF1FB /* XMPPUserCoreDataStorageObject.m in Sources */,
+				15AFB3E31C60B34F0046F279 /* WCContatiesTableViewController.m in Sources */,
 				15E3DDD01C5B3C7D006BF1FB /* XMPPIQ+XEP_0060.m in Sources */,
 				15E3DDBE1C5B3C7D006BF1FB /* XMPPMessage+XEP0045.m in Sources */,
 				15E3DBBF1C5A526A006BF1FB /* ContextFilterLogFormatter.m in Sources */,
