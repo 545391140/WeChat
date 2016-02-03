@@ -21,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
     // Do any additional setup after loading the view.
 
     self.password.background = [UIImage imageNamed:@"operationbox_text"];
