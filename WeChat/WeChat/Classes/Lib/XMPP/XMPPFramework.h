@@ -32,6 +32,9 @@
 // 花名册 好友列表
 #import "XMPPRoster.h"
 #import "XMPPRosterCoreDataStorage.h"
+//消息模块
+#import "XMPPMessageArchiving.h"
+#import "XMPPMessageArchivingCoreDataStorage.h"
 
 
 //#import "XMPPRosterMemoryStorage.h"

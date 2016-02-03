@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E33e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WCInputView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WmS-LJ-b7z">
+                    <rect key="frame" x="50" y="10" width="450" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="450" id="YJn-iU-Rtt"/>
+                        <constraint firstAttribute="width" constant="450" id="eOV-t6-iwG"/>
+                        <constraint firstAttribute="width" constant="450" id="yFS-ra-Gyc"/>
+                        <constraint firstAttribute="height" constant="30" id="yVd-6w-wdJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="YJn-iU-Rtt"/>
+                            <exclude reference="yFS-ra-Gyc"/>
+                        </mask>
+                    </variation>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="WmS-LJ-b7z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="1Uq-f3-EqY"/>
+                <constraint firstItem="WmS-LJ-b7z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="44" id="5ut-h8-MQJ"/>
+                <constraint firstAttribute="trailing" secondItem="WmS-LJ-b7z" secondAttribute="trailing" constant="100" id="BeZ-0s-tJy"/>
+                <constraint firstAttribute="bottom" secondItem="WmS-LJ-b7z" secondAttribute="bottom" constant="10" id="HW7-v3-MzB"/>
+                <constraint firstItem="WmS-LJ-b7z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Hem-jd-L26"/>
+                <constraint firstAttribute="trailing" secondItem="WmS-LJ-b7z" secondAttribute="trailing" constant="106" id="IMn-qv-Lii"/>
+                <constraint firstItem="WmS-LJ-b7z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="JLK-Mb-TUj"/>
+                <constraint firstItem="WmS-LJ-b7z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="mm4-9M-NTT"/>
+                <constraint firstAttribute="trailing" secondItem="WmS-LJ-b7z" secondAttribute="trailing" constant="106" id="oIK-A9-b5Y"/>
+                <constraint firstItem="WmS-LJ-b7z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="rbf-7R-g1b"/>
+                <constraint firstItem="WmS-LJ-b7z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="tEa-Qr-SWA"/>
+                <constraint firstAttribute="bottom" secondItem="WmS-LJ-b7z" secondAttribute="bottom" constant="10" id="xxW-Oi-VzN"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="5ut-h8-MQJ"/>
+                    <exclude reference="IMn-qv-Lii"/>
+                    <exclude reference="mm4-9M-NTT"/>
+                    <exclude reference="oIK-A9-b5Y"/>
+                    <exclude reference="tEa-Qr-SWA"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="125" y="234"/>
+        </view>
+    </objects>
+</document>

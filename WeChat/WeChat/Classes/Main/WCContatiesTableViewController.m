@@ -108,6 +108,23 @@
     NSLog(@"数据给变");
     [self.tableView reloadData];
 }
+#pragma mark -- 监听删除好友事件  cell左滑
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        AppDelegate *app = [UIApplication sharedApplication].delegate;
+
+        XMPPUserCoreDataStorageObject *fried = _resultsCl.fetchedObjects[indexPath.row];
+
+        XMPPJID *userjid = fried.jid;
+
+        [app.roster removeUser:userjid];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    选中界面进入聊天界面
+    [self performSegueWithIdentifier:@"Chat" sender:nil];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

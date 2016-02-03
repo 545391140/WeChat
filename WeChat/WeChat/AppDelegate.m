@@ -35,6 +35,9 @@
 //   花名册模块
 //    XMPPRoster *_roster;
 //    XMPPRosterCoreDataStorage *_rosterStronge;
+
+    XMPPMessageArchiving *_msgarchiving;
+    XMPPMessageArchivingCoreDataStorage *_msgStrage;
 }
 //1.初始化xmppstream
 - (void)setupXMPPStream;
@@ -82,10 +85,17 @@
 
    
     xmppStream = [[XMPPStream alloc] init];
+//    添加聊天模块
+    _msgStrage = [[XMPPMessageArchivingCoreDataStorage alloc] init];
+    _msgarchiving = [[XMPPMessageArchiving alloc] initWithMessageArchivingStorage:_msgStrage];
+    [_msgarchiving activate:xmppStream];
+
+    
 //    添加花名册 获取好友列表
     self.rosterStronge = [[XMPPRosterCoreDataStorage alloc] init];
     _roster= [[XMPPRoster alloc] initWithRosterStorage:self.rosterStronge];
     [_roster activate:xmppStream];
+
 //   自动连接模块
     _reconnect = [[XMPPReconnect alloc] init];
     [_reconnect activate:xmppStream];//激活
@@ -164,6 +174,7 @@
     [_vCard deactivate];
     [_avatar deactivate];
     [_roster deactivate];
+    [_msgarchiving deactivate];
 //    断开连接
     [xmppStream disconnect];
 //    清空资源
@@ -173,6 +184,8 @@
     _avatar = nil;
     _roster = nil;
     _rosterStronge = nil;
+    _msgarchiving = nil;
+    _msgStrage = nil;
     xmppStream = nil;
 }
 
